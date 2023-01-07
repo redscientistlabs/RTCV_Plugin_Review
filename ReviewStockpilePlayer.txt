@@ -1,0 +1,91 @@
+// Lines that start with two forward slashes are not evaluated and are comments or commented lines.
+// Empty lines are ignored and comments can also be left at the end of a line.
+
+// This file needs to be in the LAYOUTS folder
+
+GridName:Review + Stockpile Player
+GridSize:15,16 //This determines the size of the area used for controls
+
+CreateGrid //Don't remove this, IsResizable goes after if needed
+IsResizable //Having this allows the form to be resized (only with External)
+
+///////------------ How SetTileForm works: --------------------
+//
+// First parameter is the Form name. This corresponds to an assembly type in the program.
+// Next four parameters are: X Grid Position, Y Grid Position, Width, Height
+// The grid uses its own units of measurement
+
+// A fifth optional parameter is for scaling the component with the form if External
+// This is an AnchorStyles Enum. it works by adding the value together.
+//
+//// AnchorStyles.Top = 1,
+//// AnchorStyles.Bottom = 2,
+//// AnchorStyles.Left = 4,
+//// AnchorStyles.Right = 8
+//
+// If you want Top & Left, you add them together so you end up with 5.
+
+// Available forms listed down here.
+// Take note that forms with "One size only" can still be bigger but will not scale up
+
+// GeneralParametersForm
+// Has the Intensity, Error Delay and Blast Radius
+// Minimum size: 5,5
+
+// CorruptionEngineForm
+// Has the corruption engine settings
+// One size only: 10,5
+
+// MemoryDomainsForm
+// Has the Memory Domains and loaded VMDs
+// Minimum size: 5,7
+
+// MemoryTools 
+// Has the various panels for Advanced Memory Tools
+// One size only: 10,7
+
+// GlitchHarvesterBlastForm
+// Has the GH Blast tools such as Corrupt, Send Raw to Stash, etc
+// One size only: 4,4
+
+// SavestateManagerForm
+// Has the GH savestates
+// One size only: 4,8
+
+// StashHistoryForm
+// Has the Glitch Harvester Stash History
+// Minimum size: 5,5
+
+// StockpileManagerForm
+// Has the Glitch Harvester Stockpile Manager
+// Minimum size: 11,12
+
+// StockpilePlayerForm
+// Has the Stockpile Player
+// Minimum size: 15,12
+
+// SettingsForm
+// Has the settings
+// Minimum size: 15,12
+
+// GlitchHarvesterIntensityForm
+// Has one Intensity slider
+// Minimum size: 5,3
+
+// Individual Advanced Memory Tools
+// ListGenForm
+// VmdActForm
+// VmdGenForm
+// VmdPoolForm
+// One size only: 10,7
+
+/----------------------------------------| Pos X | Pos Y | Size X | Size Y | Anchor |---------
+SetTileForm:StockpilePlayerForm,			0,		0,		15,		12,		15
+SetTileForm:REVIEW.UI.PluginForm,			0,		12,		15,		5,		14
+
+
+
+LoadTo:External // You can load to Main or to External (External makes a new window)
+
+
+
