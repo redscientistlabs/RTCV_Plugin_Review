@@ -19,7 +19,7 @@ namespace PLUGIN_REVIEW.UI
     using System.Text.RegularExpressions;
     using RTCV.UI.Modular;
 
-    public partial class PluginForm : ComponentForm
+    public partial class PluginForm : ComponentForm, IColorize
     {
         public PLUGIN_REVIEW plugin;
 
@@ -113,6 +113,15 @@ namespace PLUGIN_REVIEW.UI
         private void PluginForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnInspectCorruption_Click(object sender, EventArgs e)
+        {
+            if (S.GET<BlastEditorForm>() != null)
+            {
+                var current = StockpileManagerUISide.CurrentStashkey;
+                BlastEditorForm.OpenBlastEditor(current);
+            }
         }
     }
 }
